@@ -1,0 +1,33 @@
+body{
+    height: 125vh;
+    margin-top: 70px;
+    padding: 20px;
+    background-size: cover;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+header{
+    background-color: orange;
+    position:fixed;
+    left: 0;
+    right: 0;
+    top: 5px;
+    height: 30px;
+    display: flex;  
+    align-items: center;  
+    box-shadow: 0 0 25px 0 black;      
+}
+
+header *{
+    display: inline;
+}
+
+header li{
+    margin: 20px;
+}
+
+header li a {  
+    color: blue;  
+    text-decoration: none;  
+    }  
+
