@@ -1,19 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
+`<!DOCTYPE html>
+<html ng-app>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <script data-require="angular.js@1.0.7" data-semver="1.0.7" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"></script>
+
 </head>
 <body>
-    <center><strong><h1>Register User Form</h1></strong></center>    
+    <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="styles.css">
+
+      <div class="topnav">
+        <a href="home.html">Home</a>
+        <a href="movies.html">Movies</a>
+        <a href="series.html">Series</a>
+        <a href="angularjs.html">About</a>
+        <a class="active" href="register.html">Register User</a>
+
+        
+      </div>
+  <center>
+    
+  <h1>Choose Login/Register to reroute the current page</h1>
+  </center>
+  <form>
+  <input type="radio" value="login" ng-model="LogReg">Login
+  <input type="radio" value="register" ng-model="LogReg">Register   
+  </form>
+
+  <div ng-switch="LogReg">
+    <div ng-switch-when="register">
+       <center><strong><h2>Register User Form</h2></strong></center>    
     <form action="" onsubmit="checkvalidD()">
-        <input type="text" name="" id="name"><br>
-        <input type="number" name="" id="number"><br>
-        <input type="date" name="" id="date">
-        <input type="submit" name="" id="">
+        <input placeholder="Username" ng-model="Uname"  type="text"id="name">
+        <p>Username: {{Uname}}</p>
+        <input placeholder="Age" type="number"  ng-model="Age" id="number"><br>
+        <p>Age: {{Age}}</p>
+        <input placeholder="DOB" type="date" name="" id="date">
+
+        <div  ng-controller="testers">
+            <h3>Captcha Verification:: {{first}}+{{second}}=<input type="number" id="captcha"></h3>
+        </div>
+
+        <input type="submit" name="" id=""> 
     </form>
+    </div>
+    <div ng-switch-when="login">
+       <center><strong><h2>Login Form</h2></strong></center>    
+    <form action="" onsubmit="checkvalidD()">
+        <input placeholder="Username" ng-model="Uname"  type="text"id="name">
+        <p>Username: {{Uname}}</p>  
+        <input placeholder="DOB" type="date" name="" id="date">
+      <input type="submit">
+    </form>
+    </div>
+  </div>
+  
+   
+  
 </body>
 </html>

@@ -7,6 +7,7 @@ function getLocation() {
   }
 }
 
+
 function showPosition(position) {
   x.innerHTML = "Latitude: " + position.coords.latitude +
   "<br>Longitude: " + position.coords.longitude;
@@ -18,12 +19,23 @@ function checkvalidD(){
   var y = document.getElementById("number").value;
   var z = document.getElementById("date").value;
   var usernameRegex = /^[a-zA-Z0-9]+$/;
+
+  var captcha=document.getElementById("captcha").value;
+
   var test1=usernameRegex.test(x);
-  if(test1)
-     alert("Congrts. U have registerd successfully")  
+  if(test1 && captcha==30)
+     document.writeln("Congrats, Account Creation Successful");
   else
   {
-    alert(test1)
+    document.writeln("Check your credentials again and retry");
   }
+
+
   
 }
+
+function testers($scope){
+  $scope.first=Math.floor(Math.random() * 10);
+  $scope.second=Math.floor(Math.random() * 10);
+}
+

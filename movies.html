@@ -1,41 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="movies">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+   <header ng-include src="'nav.html'"></header> 
+
+
 </head>
       <link rel="stylesheet" href="style.css">
-      <div class="topnav">
-        <a class="active" href="#home">Home</a>
-        <a href="movies.html">Movies</a>
-        <a href="series.html">Series</a>
-        <a href="#about">About</a>
-        <a href="register.html">Register User</a>
 
+  
+
+<body>
+
+<script data-require="angular.js@1.0.7" data-semver="1.0.7" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+  <script src = "movies.js"></script>
+  
+  <div ng-controller="movienames">
+    
+    <br>
+    <form>
+      <input type="radio" value="Add" ng-model="MovieAddView">Add Movie
+      <input type="radio" value="View" ng-model="MovieAddView">View Movie
+    </form>
+    <div ng-switch="MovieAddView">
+      <div ng-switch-when="Add">
+
+        <form ng-submit="AddMovieToArray(names,release,lang)">
+          
+        <input type="text" placeholder="Name" ng-model="names" />
+        <input type="text" placeholder="ReleaseYear" ng-model="release" />
+        <input type="text" placeholder="Language" ng-model="lang" />
+        <input type="submit" value="Add New Movie" />
+          
+      
+        </form> 
       </div>
+
+      <div ng-switch-when="View">
+            <button class="OrderButton" ng-click="order='name'">Order By Name</button>
+    <button class="OrderButton" ng-click="order='releaseyear'">Order By ReleaseYear</button>
+    <button class="OrderButton" ng-click="order='language'">Order By Language</button>
+    
+    <br><input  type="text" placeholder="Search for movies" ng-model="search"/>
+    
     <ul>
-        <ol>
-           <li><strong>Ex Machina</strong></li>  <br>
-        </ol>  
-            <img width="400px" height="400px" src="https://media.wired.com/photos/590a54bb9f8d2e342d8e774b/master/pass/ex-machina.jpg" alt="ex-machina">
-            <iframe width="727" height="409" src="https://www.youtube.com/embed/EoQuVnKhxaM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <ol>
-          <li><strong>OldBoy</strong> </li>  <br>
-        </ol>
-
-            <img width="400px" height="400px" src="https://m.media-amazon.com/images/M/MV5BMTI3NTQyMzU5M15BMl5BanBnXkFtZTcwMTM2MjgyMQ@@._V1_FMjpg_UX1000_.jpg" alt="ex-machina">
-            <iframe width="727" height="409" src="https://www.youtube.com/embed/w4UUGIIZxFU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>            <br><br>
-        <ol>
-           <li><strong>Battle Royale</strong></li>  <br>
-        </ol>
-
-            <img width="400px" height="400px" src="https://m.media-amazon.com/images/M/MV5BMDc2MGYwYzAtNzE2Yi00YmU3LTkxMDUtODk2YjhiNDM5NDIyXkEyXkFqcGdeQXVyMTEwNDU1MzEy._V1_.jpg">
-            <iframe width="727" height="409" src="https://www.youtube.com/embed/oKCN6hzD5J4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          
+          <li ng-repeat="i in movie | orderBy: order | filter:search " ng-show="i.available" ><strong> {{i.name}} :: 
+ {{i.language}}  </strong>
+            <button class="removeElement" ng-click="removeMovie(i)"> x</button>
+     
             <br><br>
     </ul>
-<body>
+      </div>
+
+
+    </div>
+      
+
+  </div>
     
 </body>
 </html>
