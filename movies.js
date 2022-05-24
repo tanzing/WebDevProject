@@ -3,13 +3,13 @@ var movies = angular.module("movies" , ['ngRoute']);
 movies.config(['$routeProvider', function($routeProvider){
   $routeProvider
   .when('/series' , {
-    templateUrl: 'series.html'
+    templateUrl: '/series.html'
   })
   .when('/register',{
-    templateUrl: 'register.html',
+    templateUrl: '/register.html',
     controller: 'movienames'
   }).otherwise({
-    redirectTo: 'series'
+    redirectTo: ''
   })
 }])
 
