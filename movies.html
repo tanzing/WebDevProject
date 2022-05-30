@@ -51,7 +51,7 @@
     
     <ul>
           
-          <li ng-repeat="i in movie | orderBy: order | filter:search " ng-show="i.available" ><strong> {{i.name}} :: 
+          <li ng-repeat="i in movie | orderBy: order | filter:search " ng-view="i.available" ><strong> {{i.name}} :: 
  {{i.language}}  </strong>
             <button class="removeElement" ng-click="removeMovie(i)"> x</button>
      

@@ -1,4 +1,4 @@
-var movies = angular.module("movies" , ['ngRoute']);
+  var movies = angular.module("movies" , ['ngRoute']);
 
 movies.config(['$routeProvider', function($routeProvider){
   $routeProvider

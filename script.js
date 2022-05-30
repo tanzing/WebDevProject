@@ -28,10 +28,7 @@ function checkvalidD(){
   else
   {
     document.writeln("Check your credentials again and retry");
-  }
-
-
-  
+  }   
 }
 
 function testers($scope){
